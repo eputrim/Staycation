@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
-import InputNumber from "elements/Form/InputNumber";
+import { InputDate } from "elements/Form/index";
 import { render } from "@testing-library/react";
 
 export default class Example extends Component {
   state = {
-    value: "",
+    value: {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
   };
 
   handleChange = (e) => {
@@ -20,10 +24,8 @@ export default class Example extends Component {
           style={{ height: "100vh" }}
         >
           <div class="col-auto">
-            <InputNumber
+            <InputDate
               max={30}
-              isSuffixPlural
-              suffix=" night"
               onChange={this.handleChange}
               name="value"
               value={this.state.value}
